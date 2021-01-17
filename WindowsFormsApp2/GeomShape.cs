@@ -6,7 +6,12 @@ using System.Threading.Tasks;
 
 namespace WindowsFormsApp2
 {
-    class Квадрат
+    abstract class  Фигура
+    {
+        abstract public double Площадь();
+    }
+
+    class Квадрат : Фигура
     {
         public double РазмерСтороны;
 
@@ -30,9 +35,14 @@ namespace WindowsFormsApp2
         {
             return РазмерСтороны * РазмерСтороны;
         }
+
+        public override double Площадь()
+        {
+            return РазмерСтороны * РазмерСтороны;
+        }
     }
 
-    class Прямоугольник
+    class Прямоугольник : Фигура
     {
         public double РазмерСтороны1;
         public double РазмерСтороны2;
@@ -42,13 +52,23 @@ namespace WindowsFormsApp2
         {
             return РазмерСтороны1 * РазмерСтороны2;
         }
+
+        public override double Площадь()
+        {
+            return РазмерСтороны1 * РазмерСтороны2;
+        }
     }
 
-    class Круг
+    class Круг : Фигура
     {
         public double Радиус;
         
         public double ВернутьПлощадь()
+        {
+            return Math.PI * Радиус * Радиус;
+        }
+
+        public override double Площадь()
         {
             return Math.PI * Радиус * Радиус;
         }
